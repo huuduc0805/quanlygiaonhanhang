@@ -1,0 +1,296 @@
+﻿#ManHinhThi {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #ffe4e1;
+    display: flex;
+    padding: 3px;
+    flex-direction: column
+}
+
+    #ManHinhThi .flex {
+        display: flex;
+        flex: 1;
+        overflow: auto
+    }
+
+    #ManHinhThi .colleft {
+        width: calc(100% - 18.3%);
+        display: flex;
+        flex-direction: column;
+        margin-right: 3px
+    }
+
+        #ManHinhThi .colleft .question {
+            flex: 1;
+            background: #fff;
+            overflow: auto;
+            padding: 10px
+        }
+
+            #ManHinhThi .colleft .question ul {
+                padding: 0;
+                margin: 0;
+                list-style: none
+            }
+
+                #ManHinhThi .colleft .question ul li {
+                    display: none;
+                    font-size: 23px;
+                    line-height: 35px;
+                }
+
+                    #ManHinhThi .colleft .question ul li.active {
+                        display: block
+                    }
+
+            #ManHinhThi .colleft .question .name {
+                font-weight: bold;
+                font-size: 25px;
+                line-height: 35px
+            }
+
+            #ManHinhThi .colleft .question .cont {
+                counter-reset: countAns;
+                margin-top: 15px
+            }
+
+                #ManHinhThi .colleft .question .cont p {
+                    word-wrap: break-word;
+                    margin-bottom: 8px
+                }
+
+                    #ManHinhThi .colleft .question .cont p.correct {
+                        color: red
+                    }
+
+                    #ManHinhThi .colleft .question .cont p:before {
+                        counter-increment: countAns;
+                        content: counter(countAns) " -";
+                    }
+
+        #ManHinhThi .colleft .info {
+            padding: 10px;
+            line-height: 21px;
+            text-transform: uppercase;
+            font-weight: bold
+        }
+.swal-title {
+    line-height: 35px
+}
+
+    #ManHinhThi .colright {
+        width: 18.3%;
+        padding: 5px;
+        background: #effafe;
+        min-width: 300px
+    }
+
+#frmpost {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+#ManHinhThi .colright .timeRemain {
+    background: #1681cf;
+    padding: 7px 10px;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 5px;
+    border: 1px solid #1278ba
+}
+
+    #ManHinhThi .colright .timeRemain .text {
+        margin-right: 5px;
+        font-size: 15px;
+        color: #fff
+    }
+
+    #ManHinhThi .colright .timeRemain .value {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #ffff00
+    }
+
+#ManHinhThi .colright .answer {
+    flex: 1;
+    overflow: auto
+}
+
+    #ManHinhThi .colright .answer ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        counter-reset: answer;
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap
+    }
+
+        #ManHinhThi .colright .answer ul li {
+            counter-reset: choose;
+            display: flex;
+            width: calc((100% - 10px) / 2);
+            background: #b2dffc;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #e1e1e1
+        }
+
+            #ManHinhThi .colright .answer ul li:before {
+                counter-increment: answer;
+                content: counter(answer);
+                align-items: center;
+                font-size: 16px;
+                width: 25px;
+                background: #3a9be1;
+                height: 100%;
+                color: #fff;
+                text-align: center;
+                display: flex;
+                justify-content: center
+            }
+
+            #ManHinhThi .colright .answer ul li div {
+                flex: 1;
+                margin-left: 10px;
+                padding: 5px
+            }
+
+            #ManHinhThi .colright .answer ul li.correct {
+                background: #9cd0a8
+            }
+
+            #ManHinhThi .colright .answer ul li.error {
+                background: #e89e9e
+            }
+
+#ManHinhThi label {
+    cursor: pointer;
+    color: #000;
+    display: inline-block;
+    margin: 0 0;
+}
+
+    #ManHinhThi label input[type=checkbox] {
+        position: relative;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+    }
+
+        #ManHinhThi label input[type=checkbox]:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border: 1px solid #0d74bf;
+            pointer-events: none
+        }
+
+        #ManHinhThi label input[type=checkbox]:checked:after {
+            content: "\221A";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border: 1px solid #0d74bf;
+            pointer-events: none;
+            font-weight: 900;
+            font-family: 'Times New Roman';
+            font-size: 10px;
+            text-align: center;
+            line-height: 12px
+        }
+
+#ManHinhThi .colright .answer ul li label:before {
+    counter-increment: choose;
+    content: counter(choose);
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 1px;
+    font-weight: bold
+}
+
+#ManHinhThi .colright .answer ul li.hasCheck {
+    background: #ccc
+}
+
+#ManHinhThi .colright .answer ul li.active:before {
+    background: #e97b10
+}
+
+#ManHinhThi .colright .answer ul li.active input[type=checkbox]:after {
+    border-color: #e97b10
+}
+
+#ManHinhThi .colright .answer ul li.active {
+    background: #fbcb0a;
+    color: #fff
+}
+
+    #ManHinhThi .colright .answer ul li.active label:before {
+        color: #ff0000
+    }
+
+#ManHinhThi .colright .button {
+    display: flex;
+    padding-top: 10px;
+}
+
+#ManHinhThi .colright .ketthucthi {
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    background: #1681cf;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    flex: auto;
+    margin: 0 2px
+}
+
+    #ManHinhThi .colright .ketthucthi.refresh {
+        background: #dcdcdc;
+        color: #333
+    }
+
+    #ManHinhThi .colright .ketthucthi:hover {
+        -webkit-filter: brightness(120%);
+        -moz-filter: brightness(120%)
+    }
+
+#progressBar {
+    width: 100%;
+    height: 25px;
+    background: #e99f10
+}
+
+    #progressBar div {
+        height: 100%;
+        text-align: right;
+        padding: 0 10px;
+        line-height: 22px;
+        width: 0;
+        background: #f2eac7;
+        box-sizing: border-box;
+        font-weight: bold;
+        color: #e97b10;
+        border: 1px solid #f7d99f
+    }

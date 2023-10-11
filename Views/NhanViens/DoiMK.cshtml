@@ -1,0 +1,45 @@
+﻿@model quanlygiaonhanhang.Models.NhanVien
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đổi mật khẩu</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Đổi mật khẩu</h4>
+    <hr />
+    <span style="color:red">@ViewBag.TB</span>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input hidden name="Id" value="@Model.Id" />
+    <input hidden name="SDT" value="@Model.SDT" />
+    <input hidden name="TaiKhoan" value="@Model.TaiKhoan" />
+    <input hidden name="HoTen" value="@Model.HoTen" />
+    <input hidden name="PhanQuyen" value="@Model.PhanQuyen" />
+    <input hidden name="DiaChi" value="@Model.DiaChi" />
+    <div class="form-group">
+        <div class="control-label col-md-2">Mật khẩu cũ</div>
+        <div class="col-md-10">
+            <input name="MatKhau" class="form-control" value="@Model.MatKhau" type="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="control-label col-md-2">Mật khẩu mới</div>
+        <div class="col-md-10">
+            <input name="MKMoi" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row" style="margin-left:20px">
+        <input type="submit" value="Cập nhật" class="btn btn-success" />
+        <div class="col-md-1">
+            <a class="btn btn-primary" href="@Url.Action("Index","Home")">Trở lại</a>
+        </div>
+    </div>
+</div>
+}

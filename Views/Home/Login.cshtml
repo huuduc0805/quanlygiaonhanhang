@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QUẢN LÝ GIAO - NHẬN HÀNG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="~/IMG/12032019165128-thanh-toan-giao-hang.png" type="image/x-icon" />
+    <link href="~/public/Admin/css/all.min.css" rel="stylesheet" />
+    <link href="~/public/Admin/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/public/Admin/css/font-sans.pro.css" rel="stylesheet" />
+    <link href="~/public/Admin/css/toastr.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    <div class="h-100 w-100 position-absolute" style="background-image:url(../../../../public/Admin/images/bg-01.jpg);background-size: 100% auto; z-index:-1; opacity:.6"></div>
+    <div class="overlay justify-content-center align-items-center d-none bg-secondary w-100 h-100 position-absolute" style="z-index:1; opacity:.3"><i class="fas fa-2x fa-sync fa-spin"></i></div>
+    <div class="login-box">
+        <div class="login-logo">
+            @*<img src="~/Public/Admin/images/user2-160x160.jpg" class="d-block rounded-circle mx-auto" width="80" />*@
+            <a href="javascript:void(0)" class="text-light"> <b>Đăng nhập hệ thống</b></a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body rounded">
+                <p class="login-box-msg">
+                    <span class="text-danger">
+                        Đăng nhập bằng tài khoản của bạn
+                    </span>
+                </p>
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nhập tên đăng nhập" name="TaiKhoan" value="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="MatKhau" value="">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                       
+                        <div class="col-md-12"style="color:red;text-align:center">
+                            <span >@ViewBag.error</span>
+                        </div>
+                    </div>
+                    <div class="col-5 text-center">
+                        <button type="submit" class="btn-login btn btn-primary btn-block" style="margin-left:75%">Đăng nhập</button>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/public/Admin/js/jquery.min.js"></script>
+    <script src="~/public/Admin/js/bootstrap.bundle.min.js"></script>
+    <script src="~/public/Admin/js/toastr.min.js"></script>
+    <script src="~/public/Admin/js/adminlte.min.js"></script>
+    <script src="~/public/Admin/js/karma.laclac.min.js"></script>
+</body>
+</html>

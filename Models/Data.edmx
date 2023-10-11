@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QlygiaonhanhangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DiaDiem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDD" Type="nvarchar(max)" />
+          <Property Name="GiaCuoc" Type="float" />
+          <Property Name="KhuVuc" Type="int" />
+        </EntityType>
+        <EntityType Name="DichVu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhiDV" Type="float" />
+        </EntityType>
+        <EntityType Name="DonHang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
+          <Property Name="KhuVuc" Type="int" />
+          <Property Name="SDT" Type="varchar" MaxLength="50" />
+          <Property Name="TenMH" Type="nvarchar(max)" />
+          <Property Name="SoKG" Type="int" />
+          <Property Name="IdDV" Type="int" />
+          <Property Name="PhiVC" Type="float" />
+          <Property Name="TinhTrang" Type="int" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDT" Type="varchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="PhanQuyen" Type="int" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhanCongVC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTenTX" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BKS" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdDH" Type="int" />
+          <Property Name="IdNV" Type="int" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__DonHang__DiaChi__3D5E1FD2">
+          <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="0..1" />
+          <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiaDiem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DonHang">
+              <PropertyRef Name="KhuVuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonHang__IdDV__3E52440B">
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="0..1" />
+          <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DichVu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DonHang">
+              <PropertyRef Name="IdDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCongVC__IdDH__412EB0B6">
+          <End Role="DonHang" Type="Self.DonHang" Multiplicity="0..1" />
+          <End Role="PhanCongVC" Type="Self.PhanCongVC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonHang">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhanCongVC">
+              <PropertyRef Name="IdDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCongVC__IdNV__4222D4EF">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+          <End Role="PhanCongVC" Type="Self.PhanCongVC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhanCongVC">
+              <PropertyRef Name="IdNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QlygiaonhanhangModelStoreContainer">
+          <EntitySet Name="DiaDiem" EntityType="Self.DiaDiem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanCongVC" EntityType="Self.PhanCongVC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DonHang__DiaChi__3D5E1FD2" Association="Self.FK__DonHang__DiaChi__3D5E1FD2">
+            <End Role="DiaDiem" EntitySet="DiaDiem" />
+            <End Role="DonHang" EntitySet="DonHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonHang__IdDV__3E52440B" Association="Self.FK__DonHang__IdDV__3E52440B">
+            <End Role="DichVu" EntitySet="DichVu" />
+            <End Role="DonHang" EntitySet="DonHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCongVC__IdDH__412EB0B6" Association="Self.FK__PhanCongVC__IdDH__412EB0B6">
+            <End Role="DonHang" EntitySet="DonHang" />
+            <End Role="PhanCongVC" EntitySet="PhanCongVC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCongVC__IdNV__4222D4EF" Association="Self.FK__PhanCongVC__IdNV__4222D4EF">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="PhanCongVC" EntitySet="PhanCongVC" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QlygiaonhanhangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DichVu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhiDV" Type="Double" />
+          <NavigationProperty Name="DonHangs" Relationship="QlygiaonhanhangModel.FK__DonHang__IdDV__3E52440B" FromRole="DichVu" ToRole="DonHang" />
+        </EntityType>
+        <EntityContainer Name="Data" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+          <EntitySet Name="DiaDiems" EntityType="QlygiaonhanhangModel.DiaDiem" />
+          <EntitySet Name="NhanViens" EntityType="QlygiaonhanhangModel.NhanVien" />
+          <EntitySet Name="DonHangs" EntityType="QlygiaonhanhangModel.DonHang" />
+          <AssociationSet Name="FK__DonHang__DiaChi__3D5E1FD2" Association="QlygiaonhanhangModel.FK__DonHang__DiaChi__3D5E1FD2">
+            <End Role="DiaDiem" EntitySet="DiaDiems" />
+            <End Role="DonHang" EntitySet="DonHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonHang__IdDV__3E52440B" Association="QlygiaonhanhangModel.FK__DonHang__IdDV__3E52440B">
+            <End Role="DichVu" EntitySet="DichVus" />
+            <End Role="DonHang" EntitySet="DonHangs" />
+          </AssociationSet>
+          <EntitySet Name="PhanCongVCs" EntityType="QlygiaonhanhangModel.PhanCongVC" />
+          <AssociationSet Name="FK__PhanCongVC__IdDH__412EB0B6" Association="QlygiaonhanhangModel.FK__PhanCongVC__IdDH__412EB0B6">
+            <End Role="DonHang" EntitySet="DonHangs" />
+            <End Role="PhanCongVC" EntitySet="PhanCongVCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCongVC__IdNV__4222D4EF" Association="QlygiaonhanhangModel.FK__PhanCongVC__IdNV__4222D4EF">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="PhanCongVC" EntitySet="PhanCongVCs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DiaDiem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GiaCuoc" Type="Double" />
+          <Property Name="KhuVuc" Type="Int32" />
+          <NavigationProperty Name="DonHangs" Relationship="QlygiaonhanhangModel.FK__DonHang__DiaChi__3D5E1FD2" FromRole="DiaDiem" ToRole="DonHang" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhanQuyen" Type="Int32" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhanCongVCs" Relationship="QlygiaonhanhangModel.FK__PhanCongVC__IdNV__4222D4EF" FromRole="NhanVien" ToRole="PhanCongVC" />
+        </EntityType>
+        <EntityType Name="DonHang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KhuVuc" Type="Int32" />
+          <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TenMH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoKG" Type="Int32" />
+          <Property Name="IdDV" Type="Int32" />
+          <Property Name="PhiVC" Type="Double" />
+          <Property Name="TinhTrang" Type="Int32" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DiaDiem" Relationship="QlygiaonhanhangModel.FK__DonHang__DiaChi__3D5E1FD2" FromRole="DonHang" ToRole="DiaDiem" />
+          <NavigationProperty Name="DichVu" Relationship="QlygiaonhanhangModel.FK__DonHang__IdDV__3E52440B" FromRole="DonHang" ToRole="DichVu" />
+          <NavigationProperty Name="PhanCongVCs" Relationship="QlygiaonhanhangModel.FK__PhanCongVC__IdDH__412EB0B6" FromRole="DonHang" ToRole="PhanCongVC" />
+        </EntityType>
+        <Association Name="FK__DonHang__DiaChi__3D5E1FD2">
+          <End Type="QlygiaonhanhangModel.DiaDiem" Role="DiaDiem" Multiplicity="0..1" />
+          <End Type="QlygiaonhanhangModel.DonHang" Role="DonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiaDiem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DonHang">
+              <PropertyRef Name="KhuVuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonHang__IdDV__3E52440B">
+          <End Type="QlygiaonhanhangModel.DichVu" Role="DichVu" Multiplicity="0..1" />
+          <End Type="QlygiaonhanhangModel.DonHang" Role="DonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DichVu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DonHang">
+              <PropertyRef Name="IdDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PhanCongVC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTenTX" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BKS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdDH" Type="Int32" />
+          <Property Name="IdNV" Type="Int32" />
+          <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DonHang" Relationship="QlygiaonhanhangModel.FK__PhanCongVC__IdDH__412EB0B6" FromRole="PhanCongVC" ToRole="DonHang" />
+          <NavigationProperty Name="NhanVien" Relationship="QlygiaonhanhangModel.FK__PhanCongVC__IdNV__4222D4EF" FromRole="PhanCongVC" ToRole="NhanVien" />
+        </EntityType>
+        <Association Name="FK__PhanCongVC__IdDH__412EB0B6">
+          <End Type="QlygiaonhanhangModel.DonHang" Role="DonHang" Multiplicity="0..1" />
+          <End Type="QlygiaonhanhangModel.PhanCongVC" Role="PhanCongVC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonHang">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhanCongVC">
+              <PropertyRef Name="IdDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCongVC__IdNV__4222D4EF">
+          <End Type="QlygiaonhanhangModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+          <End Type="QlygiaonhanhangModel.PhanCongVC" Role="PhanCongVC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhanCongVC">
+              <PropertyRef Name="IdNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QlygiaonhanhangModelStoreContainer" CdmEntityContainer="Data">
+          <EntitySetMapping Name="DichVus">
+            <EntityTypeMapping TypeName="QlygiaonhanhangModel.DichVu">
+              <MappingFragment StoreEntitySet="DichVu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+                <ScalarProperty Name="PhiDV" ColumnName="PhiDV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiaDiems">
+            <EntityTypeMapping TypeName="QlygiaonhanhangModel.DiaDiem">
+              <MappingFragment StoreEntitySet="DiaDiem">
+                <ScalarProperty Name="KhuVuc" ColumnName="KhuVuc" />
+                <ScalarProperty Name="GiaCuoc" ColumnName="GiaCuoc" />
+                <ScalarProperty Name="TenDD" ColumnName="TenDD" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="QlygiaonhanhangModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="PhanQuyen" ColumnName="PhanQuyen" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonHangs">
+            <EntityTypeMapping TypeName="QlygiaonhanhangModel.DonHang">
+              <MappingFragment StoreEntitySet="DonHang">
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="PhiVC" ColumnName="PhiVC" />
+                <ScalarProperty Name="IdDV" ColumnName="IdDV" />
+                <ScalarProperty Name="SoKG" ColumnName="SoKG" />
+                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="KhuVuc" ColumnName="KhuVuc" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanCongVCs">
+            <EntityTypeMapping TypeName="QlygiaonhanhangModel.PhanCongVC">
+              <MappingFragment StoreEntitySet="PhanCongVC">
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="IdNV" ColumnName="IdNV" />
+                <ScalarProperty Name="IdDH" ColumnName="IdDH" />
+                <ScalarProperty Name="BKS" ColumnName="BKS" />
+                <ScalarProperty Name="HoTenTX" ColumnName="HoTenTX" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

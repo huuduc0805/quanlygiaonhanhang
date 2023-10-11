@@ -1,0 +1,318 @@
+﻿.wpDoitacchienluoc {
+    padding: 30px 0px;
+}
+
+    .wpDoitacchienluoc .title {
+        text-align: center;
+        color: #c70302;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 0px 0px 20px;
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+    }
+
+        .wpDoitacchienluoc .title:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 45%;
+            width: 10%;
+            height: 1.5px;
+            background-color: #2a771b;
+        }
+
+    .wpDoitacchienluoc .item {
+        width: 18%;
+        float: left;
+        margin: 0px 1%;
+    }
+
+        .wpDoitacchienluoc .item img {
+            width: 100%;
+        }
+/*-------------------------- contact ----------------------------*/
+.wpContact {
+    background-color: #f7f7f7;
+    padding: 30px 0px;
+}
+
+    .wpContact .title {
+        text-align: center;
+        color: #c70302;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 0px 0px 20px;
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+    }
+
+        .wpContact .title:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 45%;
+            width: 10%;
+            height: 1.5px;
+            background-color: #2a771b;
+        }
+
+    .wpContact .item {
+        margin: 0px 0px 20px;
+    }
+
+    .wpContact .boxImg {
+        height: 130px;
+        width: 230px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin: 0px auto 30px;
+    }
+
+        .wpContact .boxImg.icLamDong {
+            background-image: url('ic_lamdong.png');
+        }
+
+        .wpContact .boxImg.icHCM {
+            background-image: url('ic_hcm.png');
+        }
+
+        .wpContact .boxImg.icCanTho {
+            background-image: url('ic_cantho.png');
+        }
+
+    .wpContact .item .name {
+        color: #2a771b;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .wpContact .item .address {
+        background-image: url(../images/icon/ic_map_vchh.png);
+        background-size: 20px 20px;
+        background-position: left 4px;
+        background-repeat: no-repeat;
+        padding: 0px 0px 0px 24px;
+        line-height: 25px;
+    }
+
+    .wpContact .item .phone {
+        background-image: url(../images/icon/ic_phone_vchh.png);
+        background-size: 20px 20px;
+        background-position: left 4px;
+        background-repeat: no-repeat;
+        padding: 0px 0px 0px 24px;
+        line-height: 25px;
+    }
+/*-------------------------- váº­n chuyá»ƒn hĂ ng hĂ³a ----------------------------*/
+.wpVanchuyenhanghoa .item {
+    width: 100%;
+    position: relative;
+    margin: 1em 0em 4em;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .wpVanchuyenhanghoa .item img {
+        position: relative;
+        display: block;
+        width: 100% !important;
+    }
+
+    .wpVanchuyenhanghoa .item .service-content {
+        border-bottom: 8px solid #ffd800;
+        background: #fff;
+        left: 5%;
+        position: absolute;
+        bottom: -2em;
+        width: 90%;
+        transition: all .3s ease,top .3s;
+        -webkit-transition: all .3s ease;
+        z-index: 2;
+    }
+
+        .wpVanchuyenhanghoa .item .service-content h3 {
+            color: #363636;
+            margin: 0;
+            padding: 10px 0px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+        .wpVanchuyenhanghoa .item .service-content .excerpt-content {
+            overflow: hidden;
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+            height: 0;
+            opacity: 0;
+            padding: 0 1em;
+            text-align: justify;
+        }
+
+        .wpVanchuyenhanghoa .item .service-content .block {
+            margin: 0 auto .5em;
+            width: 50%;
+            height: 1px;
+            background-color: #333;
+        }
+
+    .wpVanchuyenhanghoa .item:hover .excerpt-content {
+        height: 8em;
+        opacity: 1;
+    }
+/*----------------------- dá»‹ch vá»¥ tá»‘i Æ°u ------------------------------*/
+.wpDichvutoiuu {
+    padding: 0px 0px 30px;
+}
+
+    .wpDichvutoiuu .contents {
+        width: 70%;
+        margin: auto;
+    }
+
+    .wpDichvutoiuu .title {
+        text-align: center;
+        color: #c70302;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 0px 0px 20px;
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+    }
+
+        .wpDichvutoiuu .title:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 45%;
+            width: 10%;
+            height: 1.5px;
+            background-color: #2a771b;
+        }
+
+    .wpDichvutoiuu .item {
+        text-align: center;
+    }
+
+        .wpDichvutoiuu .item .boxImg {
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .wpDichvutoiuu .item .des {
+            line-height: 20px;
+        }
+
+            .wpDichvutoiuu .item .des p {
+                margin: 0px;
+            }
+/*----------------------- doi xe van chuyen ----------------------- */
+.wpDoixevanchuyen {
+    padding: 30px 0px;
+    background-color: #2a771b;
+}
+
+    .wpDoixevanchuyen .title {
+        text-align: center;
+        color: #ffd800;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 0px 0px 20px;
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+    }
+
+        .wpDoixevanchuyen .title:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 45%;
+            width: 10%;
+            height: 1.5px;
+            background-color: #FFF;
+        }
+
+    .wpDoixevanchuyen .contents {
+        background-color: #FFF;
+        padding: 20px 0px 0px;
+    }
+
+        .wpDoixevanchuyen .contents .tab-content h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 25px;
+        }
+
+        .wpDoixevanchuyen .contents .tab-content img {
+            max-width: 100%;
+        }
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.wpDoixevanchuyen .nav-tabs > li {
+    text-align: center;
+}
+
+    .wpDoixevanchuyen .nav-tabs > li > a {
+        border-radius: 0px !important;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #FFF;
+        margin: 0px !important;
+        border: none !important;
+        border-bottom: 3px solid #2a771b !important;
+    }
+
+    .wpDoixevanchuyen .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus {
+        color: #2a771b !important;
+        border-bottom: 3px solid #ffd800 !important;
+    }
+
+    .wpDoixevanchuyen .nav-tabs > li > a:hover {
+        color: #2a771b !important;
+        border-bottom: 3px solid #ffd800 !important;
+    }
+
+.wpDoixevanchuyen .nav-tabs {
+    border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+    .wpDichvutoiuu .contents {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .wpDoitacchienluoc .item {
+        width: 48%;
+    }
+
+    .wpContact .boxImg {
+        border-top: 1px solid #ddd;
+    }
+}

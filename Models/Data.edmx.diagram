@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36331d78b01145169c7f314fa69a4027" Name="Diagram1">
+        <EntityTypeShape EntityType="QlygiaonhanhangModel.DichVu" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QlygiaonhanhangModel.DiaDiem" Width="1.5" PointX="0.75" PointY="1.625" />
+        <EntityTypeShape EntityType="QlygiaonhanhangModel.NhanVien" Width="1.5" PointX="3.375" PointY="6" />
+        <EntityTypeShape EntityType="QlygiaonhanhangModel.DonHang" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="QlygiaonhanhangModel.FK__DonHang__DiaChi__3D5E1FD2" />
+        <AssociationConnector Association="QlygiaonhanhangModel.FK__DonHang__IdDV__3E52440B" />
+        <EntityTypeShape EntityType="QlygiaonhanhangModel.PhanCongVC" Width="1.5" PointX="5.625" PointY="3.5" />
+        <AssociationConnector Association="QlygiaonhanhangModel.FK__PhanCongVC__IdDH__412EB0B6" />
+        <AssociationConnector Association="QlygiaonhanhangModel.FK__PhanCongVC__IdNV__4222D4EF" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

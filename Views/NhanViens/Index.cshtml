@@ -1,0 +1,119 @@
+﻿@model IEnumerable<quanlygiaonhanhang.Models.NhanVien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 0;
+}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="ml-1" style="font-weight:700;font-size:24px;color:red">Danh sách nhân viên</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-primary" style="float:right;margin:10px 10px 0 0" href="/NhanViens/Create"><i class="fa fa-plus"></i> Thêm nhân viên</a>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr class="text-center">
+                                    <th>
+                                        STT
+                                    </th>
+                                    <th>
+                                        Họ và tên
+                                    </th>
+                                    <th>
+                                       Số điện thoại
+                                    </th>
+                                    <th>
+                                        Địa chỉ
+                                    </th>
+                                    <th>
+                                        Phân quyền
+                                    </th>
+                                    <th>
+                                        Tài khoản
+                                    </th>
+                                    <th>
+                                        Thao tác
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    stt++;
+
+                                    <tr class="text-center">
+                                        <td>
+                                            @stt
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HoTen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SDT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DiaChi)
+                                        </td>
+                                        <td>
+                                            @(item.PhanQuyen==1?"Quản trị viên":"Nhân viên")
+                                        </td>
+                                        <td>
+                                            @item.TaiKhoan
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-success" title="Sửa" href="@Url.Action("Edit","NhanViens",new {id=item.Id})">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                            <a class="btn btn-sm btn-outline-dark" title="Xóa" onclick="confirmation(@item.Id)">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function confirmation(id){
+      var result = confirm("Bạn có muốn xóa nhân viên đã chọn?");
+        if (result) {
+            $.ajax({
+                url: '/NhanViens/Delete',
+                method: 'POST',
+                data: { id: id},
+                success: function (data) {
+                    if (data.status) {
+                        alert(data.message);
+                        location.href = data.href;
+                    }
+                    else {
+                        alert(data.message);
+                    }
+
+                },
+            });
+      }
+    }
+</script>

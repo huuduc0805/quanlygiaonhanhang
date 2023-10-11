@@ -1,0 +1,85 @@
+﻿@model quanlygiaonhanhang.Models.DonHang
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Thêm đơn hàng mới</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thông tin đơn hàng</h4>
+        <hr />
+        <span style="color:red">@ViewBag.TB</span>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="control-label col-md-2">Họ tên khách hàng</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Khu vực</div>
+            <div class="col-md-10">
+                @Html.DropDownList("KhuVuc", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.KhuVuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">Địa chỉ</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">Số điện thoại</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Tên mặt hàng</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenMH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenMH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Trọng lượng</div>
+            <div class="col-md-10">
+                <select class="form-control" name="SoKG">
+                    <option value="0" @(Model.SoKG==0?"selected":"")>Dưới 1KG</option>
+                    @for (int i = 1; i < 8; i++)
+                    {
+                        <option value="@i" @(Model.SoKG==i?"selected":"")>@i KG </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Dịch vụ</div>
+            <div class="col-md-10">
+                @Html.DropDownList("IdDV", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdDV, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row" style="margin-left:20px">
+            <input type="submit" value="Cập nhật" class="btn btn-success" />
+            <div class="col-md-1">
+                <a class="btn btn-primary" href="@Url.Action("Index","DonHangs")">Trở lại</a>
+            </div>
+        </div>
+    </div>
+}

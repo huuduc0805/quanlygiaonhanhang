@@ -1,0 +1,46 @@
+﻿@model quanlygiaonhanhang.Models.DichVu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm dịch vụ mới</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Thông tin dịch vụ</h4>
+        <hr />
+        <span style="color:red">@ViewBag.TB</span>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-2">
+                Tên dịch vụ
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenDV, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenDV, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           <div class = "control-label col-md-2">
+               Phí dịch vụ (nghìn đồng)
+           </div>
+            <div class="col-md-10">
+                <input name="PhiDV" class="form-control" type="number" />
+            </div>
+        </div>
+
+        <div class="form-group row" style="margin-left:20px">
+            <input type="submit" value="Thêm mới" class="btn btn-success" />
+            <div class="col-md-1">
+                <a class="btn btn-primary" href="@Url.Action("Index","DichVus")">Trở lại</a>
+            </div>
+        </div>
+    </div>
+}
+
